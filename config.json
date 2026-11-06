@@ -1,0 +1,10 @@
+{
+  "integrations": {
+    "copilot": {
+      "models": [
+        "glm-5.3-flash:cloud"
+      ]
+    }
+  },
+  "last_selection": "copilot"
+}

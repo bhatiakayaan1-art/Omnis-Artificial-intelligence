@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090b10"><meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-180.png">
+  <title>Omnis AI</title>
+  <style>
+    :root{--bg:#090b10;--panel:#11151d;--panel2:#171c26;--line:#292f3d;--text:#edf1f7;--muted:#909bab;--cyan:#64d2ff;--violet:#9b87f5;--green:#54d98c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,Segoe UI,sans-serif}.shell{height:100vh;display:grid;grid-template-columns:280px 1fr}.sidebar{border-right:1px solid var(--line);padding:22px;display:flex;flex-direction:column;background:#0c0f15}.brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:750}.orb{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 65% 30%,#fff 0 4%,var(--cyan) 12%,var(--violet) 48%,#3b2d75 70%);box-shadow:0 0 28px #7a6cf466}.new{border:1px solid #3b4252;background:var(--panel2);color:var(--text);border-radius:10px;padding:10px;margin:25px 0}.tools-title{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin:14px 0 8px}.tool{width:100%;text-align:left;border:0;color:#bcc5d3;background:transparent;padding:9px 8px;border-radius:8px;cursor:pointer}.tool:hover{background:#1b202b;color:#fff}.status{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#777;margin-right:7px}.dot.on{background:var(--green);box-shadow:0 0 10px #54d98c99}.main{min-width:0;min-height:0;display:grid;grid-template-rows:auto 1fr auto}.top{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 25px}.top strong{font-weight:650}.badge{font-size:11px;color:var(--cyan);border:1px solid #2a4e61;padding:5px 9px;border-radius:999px}        .install,.memory-toggle,.forget-memory{display:inline-block;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--text);padding:7px 11px;cursor:pointer}.memory-toggle[aria-pressed="false"]{color:var(--muted)}.memory-panel{margin-top:20px;padding-top:12px;border-top:1px solid var(--line)}.memory-status{font-size:11px;color:var(--muted);padding:5px 0 8px}.forget-memory{font-size:12px;padding:6px 9px}.mobile-tools{display:none}.messages{overflow:auto;padding:35px max(24px,calc((100% - 780px)/2))}.welcome{max-width:680px;margin:12vh auto;text-align:center}.welcome h1{font-size:42px;letter-spacing:-.03em;margin:10px 0}.welcome p{color:var(--muted);font-size:18px}.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.chip{border:1px solid var(--line);background:var(--panel);color:#dce2ec;border-radius:999px;padding:9px 13px;cursor:pointer}    .message{display:flex;gap:12px;margin:18px 0}.avatar{width:30px;height:30px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;font-weight:700}.user .avatar{background:#323849}.assistant .avatar{background:linear-gradient(135deg,var(--cyan),var(--violet))}.bubble{max-width:790px;white-space:pre-wrap;overflow-wrap:anywhere}.media{display:block;max-width:min(100%,720px);max-height:520px;margin-top:12px;border:1px solid var(--line);border-radius:12px}.meta{font-size:11px;color:var(--muted);margin-bottom:4px}.bubble code{background:#212631;padding:2px 5px;border-radius:4px}.composer-wrap{padding:18px max(24px,calc((100% - 780px)/2));border-top:1px solid var(--line)}.composer{display:flex;gap:8px;background:var(--panel);border:1px solid #343b49;border-radius:14px;padding:8px}.composer:focus-within{border-color:#66758e;box-shadow:0 0 0 3px #64d2ff0d}textarea{flex:1;resize:none;border:0;outline:0;background:transparent;color:white;padding:9px;font:15px inherit;max-height:120px}.icon{width:40px;height:40px;border:0;border-radius:9px;background:transparent;color:#adb8c8;cursor:pointer}.send{background:var(--text)!important;color:#0b0d12!important}.hint{text-align:center;color:#667184;font-size:11px;margin-top:7px}.typing{color:var(--muted)}@media(max-width:750px){html,body{height:100%;overflow:hidden}.shell{height:100dvh;grid-template-columns:1fr}.sidebar{display:none}.main{grid-template-rows:56px 52px minmax(0,1fr) auto}.top{height:56px;padding:0 16px}.top strong{font-size:18px}.badge{font-size:10px}.install{font-size:12px}.mobile-tools{display:flex;gap:8px;align-items:center;overflow-x:auto;white-space:nowrap;padding:4px 12px;border-bottom:1px solid var(--line);scrollbar-width:none}.mobile-tools::-webkit-scrollbar{display:none}.mobile-tools .tool{width:auto;min-height:44px;flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:13px}.messages{padding:18px 16px}.welcome{margin:10vh auto}.welcome h1{font-size:31px}.welcome p{font-size:15px}.chips{gap:7px}.chip{font-size:13px;padding:8px 10px}.message{gap:9px;margin:15px 0}.avatar{width:28px;height:28px}.bubble{font-size:15px}.composer-wrap{padding:10px 12px max(10px,env(safe-area-inset-bottom));background:var(--bg)}.composer{gap:5px;padding:5px;border-radius:24px}.composer textarea{font-size:16px;min-height:42px;padding:9px 7px}.icon{width:44px;height:44px;flex:0 0 44px;border-radius:50%}.hint{font-size:10px;margin-top:5px}}@media(max-width:370px){.main{grid-template-rows:52px 48px minmax(0,1fr) auto}.mobile-tools .tool{min-height:40px;padding:6px 9px}.welcome h1{font-size:27px}}
+  </style>
+  <style>@media(max-width:750px){.main{grid-template-columns:minmax(0,1fr)}.main>*{min-width:0}}</style>
+  <style>
+    .public-mode .sidebar .new,.public-mode .sidebar .memory-panel,.public-mode [data-local-only],.public-mode #creatorOpen,.public-mode [data-media-tool]:not([data-public-tool]){display:none!important}
+    .public-mode .mobile-tools .tool:not([data-public-tool]){display:none!important}
+    .tool:disabled{opacity:.55;cursor:not-allowed}
+    .quiz-card{margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);max-width:680px}
+    .quiz-progress{color:var(--muted);font-size:12px;margin-bottom:8px}
+    .quiz-question{font-weight:650;margin-bottom:10px}
+    .quiz-choices{display:grid;gap:8px}
+    .quiz-choice,.quiz-next{border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--text);padding:10px 12px;text-align:left;cursor:pointer}
+    .quiz-choice:hover:not(:disabled),.quiz-next:hover{border-color:var(--cyan)}
+    .quiz-choice:disabled{cursor:default}
+    .quiz-feedback{margin-top:10px;color:var(--muted)}
+    .quiz-feedback.correct{color:var(--green)}
+    .quiz-feedback.incorrect{color:#ff9b9b}
+    .quiz-next{margin-top:12px}
+    [hidden]{display:none!important}
+  </style>
+  <style>
+    .creator-dialog{width:min(92vw,440px);border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--text);padding:24px;box-shadow:0 24px 80px #0009}
+    .creator-dialog::backdrop{background:#000a}
+    .creator-dialog h2{margin:0 0 8px}
+    .creator-dialog p,.creator-note{color:var(--muted);font-size:13px}
+    .creator-dialog label{display:block;margin:14px 0 6px}
+    .creator-dialog input{width:100%;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);padding:11px;font:inherit}
+    .creator-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+    .creator-actions button{border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);padding:9px 13px;cursor:pointer}
+    .creator-actions .creator-primary{background:var(--cyan);color:#091018;border-color:var(--cyan)}
+    .creator-status{min-height:20px;color:var(--cyan);font-size:13px}
+  </style>
+  <style>
+    .photo-preview{display:flex;align-items:center;gap:10px;margin:0 0 8px;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+    .photo-preview img{width:48px;height:48px;object-fit:cover;border-radius:6px}
+    .photo-preview span{flex:1;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body class="public-mode"><div class="shell">
+<aside class="sidebar"><div class="brand"><span class="orb"></span>Omnis AI</div><button class="new" onclick="newChat()">＋ New conversation</button>
+<div class="tools-title">Tools</div>
+<button class="tool" data-public-tool onclick="insert('/calc ')" title="Calculate a mathematical expression">∑  Calculate</button>
+<button class="tool" data-public-tool onclick="insert('/quiz ')" title="Create an interactive quiz">✎  Take a quiz</button>
+<button class="tool" data-local-only onclick="insert('/python ')" title="Run Python simulation">⌘  Run Python</button>
+<button class="tool" data-public-tool onclick="insert('/search ')" title="Search live web results">◉  Live search</button>
+<button class="tool" data-public-tool onclick="insert('/weather ')" title="Get current weather">☁  Weather</button>
+<button class="tool" data-local-only onclick="insert('/open ')" title="Open allowlisted application">▦  Open app</button>
+<button class="tool" data-media-tool="image" onclick="insert('/image ')" title="Generate a realistic image">▧  Generate image</button>
+<button class="tool" data-media-tool="video" onclick="insert('/video ')" title="Generate a video">▶  Generate video</button>
+<div class="memory-panel"><div class="tools-title">Personal memory</div><div class="memory-status" data-memory-status>Loading local memory…</div><button class="memory-toggle" data-memory-toggle type="button" aria-pressed="true">Memory: On</button> <button class="forget-memory" data-forget-memory type="button">Forget all</button></div>
+<div class="status"><span id="dot" class="dot"></span><span id="status">Checking local engine…</span></div></aside>
+<main class="main"><header class="top"><strong>Omnis</strong><div><button id="creatorOpen" class="install" type="button">Creator access</button> <button id="install" class="install" type="button">Install app</button> <span class="badge">HOSTED WEB</span></div></header>
+<nav class="mobile-tools" aria-label="Quick tools"><button class="tool" data-media-tool="image" onclick="insert('/image ')">▧ Image</button><button class="tool" data-media-tool="video" onclick="insert('/video ')">▶ Video</button><button class="tool" data-public-tool onclick="insert('/calc ')">∑ Math</button><button class="tool" data-public-tool onclick="insert('/quiz ')">✎ Quiz</button><button class="tool" data-public-tool onclick="insert('/search ')">◉ Search</button><button class="tool" data-public-tool onclick="insert('/weather ')">☁ Weather</button><button class="tool" data-local-only onclick="insert('/python ')">⌘ Simulate</button><button class="tool" data-local-only onclick="insert('/open ')">▦ Open app</button><button class="tool memory-mobile" data-memory-toggle type="button" aria-pressed="true">Memory: On</button><button class="tool memory-mobile" data-forget-memory type="button">Forget memory</button></nav>
+<section id="messages" class="messages"><div id="welcome" class="welcome"><div class="orb" style="margin:auto"></div><h1>What should we explore?</h1><p>Ask about schoolwork, upload a photo of a problem, calculate, search, or create.</p><div class="chips"><button class="chip" onclick="insert('Explain this math problem step by step:')">Solve a math problem</button><button class="chip" onclick="insert('Help me plan and write an essay about:')">Write an essay</button><button class="chip" onclick="insert('/quiz 5 questions about photosynthesis')">Take an interactive quiz</button><button class="chip" onclick="insert('Write a short original story about:')">Create a story</button><button class="chip" onclick="insert('Write four lines of original song lyrics about:')">Write original lyrics</button><button class="chip" onclick="insert('Explain relativity in Hindi')">Explain in Hindi</button><button class="chip" onclick="insert('/weather Pune')">Weather in Pune</button><button class="chip" onclick="insert('What is 500 raised to the power of 2?')">Written math</button><button class="chip" data-media-tool="image" onclick="insert('/image A photorealistic cinematic portrait of a red fox in a misty forest, natural light, fine fur detail')">Generate a realistic image</button><button class="chip" data-media-tool="video" onclick="insert('/video A cinematic tracking shot of ocean waves at golden hour, realistic motion')">Generate a video</button><button class="chip" onclick="insert('Write Python to find prime numbers')">Generate code</button></div></div></section>
+<footer class="composer-wrap"><div id="photoPreview" class="photo-preview" hidden><img id="photoThumbnail" alt="Photo attachment preview"><span>Photo ready to send</span><button id="removePhoto" class="icon" type="button" aria-label="Remove photo">×</button></div><div class="composer"><button id="mic" class="icon" title="Voice input">🎙</button><button id="attachPhoto" class="icon" type="button" title="Attach a photo" aria-label="Attach a photo">📎</button><input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" hidden><textarea id="input" rows="1" placeholder="Message Omnis…" aria-label="Message Omnis"></textarea><button id="send" class="icon send" title="Send">➤</button></div><div class="hint">Attach a JPG, PNG, or WebP photo (up to 3 MB) to ask about it. Omnis can make mistakes; check important work.</div></footer></main></div>
+<dialog id="creatorDialog" class="creator-dialog">
+  <form id="creatorForm">
+    <h2>Creator access</h2>
+    <p id="creatorDescription"></p>
+    <label id="creatorPasscodeLabel" for="creatorPasscode">Passcode</label>
+    <input id="creatorPasscode" type="password" autocomplete="current-password" maxlength="256" required>
+    <label id="creatorOtpLabel" for="creatorOtp" hidden>SMS verification code</label>
+    <input id="creatorOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{4,10}" maxlength="10" hidden>
+    <div id="creatorConfirmGroup" hidden>
+      <label for="creatorPasscodeConfirm">Confirm new passcode</label>
+      <input id="creatorPasscodeConfirm" type="password" autocomplete="new-password" maxlength="256">
+    </div>
+    <p class="creator-note">Choose a fresh passcode that you have not shared in a chat. It is stored as a salted verifier on this PC, not on the USB. Creator access does not expose visitors' private conversations; chats are not silently collected to train models.</p>
+    <div id="creatorStatus" class="creator-status" role="status"></div>
+    <div class="creator-actions">
+      <button id="creatorLock" type="button" hidden>Lock creator mode</button>
+      <button type="button" onclick="document.querySelector('#creatorDialog').close()">Cancel</button>
+      <button id="creatorSubmit" class="creator-primary" type="submit">Set up</button>
+    </div>
+  </form>
+</dialog>
+<script src="api-config.js"></script>
+<script>
+const input=document.querySelector('#input'),messages=document.querySelector('#messages'),send=document.querySelector('#send');
+let history=[],conversationId=crypto.randomUUID();
+const photoInput=document.querySelector('#photoInput'),photoPreview=document.querySelector('#photoPreview'),photoThumbnail=document.querySelector('#photoThumbnail');
+let pendingImage=null;
+let publicMode=false;
+const isGitHubPages=location.hostname.toLowerCase().endsWith('.github.io');
+const configuredApiBase=typeof window.OMNIS_API_BASE==='string'&&Boolean(window.OMNIS_API_BASE.trim());
+const API_BASE=(window.OMNIS_API_BASE||location.origin).replace(/\/+$/,'');
+const apiUrl=path=>API_BASE+path;
+const backendUnavailable='The Omnis service is unavailable. Refresh the page and try again.';
+const apiSetupHint='This page is not connected to the Omnis API. GitHub Pages only hosts static files: deploy app.py and vercel.json to Vercel, set api-config.js to your Vercel HTTPS URL, and allow this website origin in OMNIS_CORS_ORIGINS.';
+async function apiResponseError(response,fallback='Request failed'){
+  const body=await response.text();
+  let data;
+  try{data=JSON.parse(body)}catch{
+    const contentType=(response.headers.get('content-type')||'').toLowerCase();
+    if(isGitHubPages||contentType.includes('text/html')||/^\s*(?:<!doctype|<html)/i.test(body)||/the page could not be found/i.test(body))return new Error(apiSetupHint);
+    return new Error(`Omnis API returned HTTP ${response.status} with a non-JSON response.`);
+  }
+  return new Error(data.error||`${fallback} (HTTP ${response.status})`);
+}
+async function health(){try{const r=await fetch(apiUrl('/api/health'));if(!r.ok)throw await apiResponseError(r,'Health check failed');const d=await r.json();publicMode=d.public_mode===true;document.body.classList.toggle('public-mode',publicMode);document.body.classList.toggle('local-mode',!publicMode);document.querySelector('#dot').classList.toggle('on',d.status==='ready');for(const button of document.querySelectorAll('[data-media-tool]')){const type=button.dataset.mediaTool,available=Boolean(d[type+'_generation']);if(!button.dataset.readyTitle)button.dataset.readyTitle=button.title;button.toggleAttribute('data-public-tool',publicMode);button.hidden=false;button.disabled=!available;if(available)button.title=button.dataset.readyTitle;else button.title=publicMode?(type==='video'?'Video generation is off. The site owner must configure OMNIS_REPLICATE_API_TOKEN and OMNIS_REPLICATE_VIDEO_MODEL in Vercel.':'Image generation is off. The site owner must configure its Replicate provider in Vercel.'):(type==='video'?'Local video generation needs a configured ComfyUI video workflow and model.':'Local image generation needs ComfyUI to be running with the Omnis workflow and model files.')}if(publicMode){document.querySelector('.badge').textContent='PUBLIC WEB';document.querySelector('#welcome p').textContent='Ask questions, calculate, search the web, or check the weather.';const enabled=[];if(d.image_generation)enabled.push('image');if(d.video_generation)enabled.push('video');if(enabled.length)document.querySelector('#welcome p').textContent='Chat, math, search, weather, and hosted '+enabled.join(' and ')+' generation.';if(!d.video_generation)document.querySelector('#welcome p').textContent+=' Video generation is not configured; the site owner can enable it with a Replicate video model.';document.querySelector('#status').textContent=(d.hosted_model_configured?'Hosted model ready':'Chat setup required — configure a hosted model')+(enabled.length?' · hosted '+enabled.join('/')+' generation ready':'')+(!d.video_generation?' · video generation not configured':'');return d}document.querySelector('.badge').textContent='LOCAL PC';const missing=[];if(!d.image_generation)missing.push('image');if(!d.video_generation)missing.push('video');document.querySelector('#status').textContent=(d.ollama?'Local model ready':'Model offline — tools still available')+(missing.length?' · configure '+missing.join('/')+' generation':'');return d}catch(e){document.querySelector('#status').textContent=isGitHubPages&&!configuredApiBase?apiSetupHint:(publicMode?'Public service unavailable':'Backend stopped — run start-usb.bat and keep its window open');return null}}
+const creatorDialog=document.querySelector('#creatorDialog'),creatorPasscode=document.querySelector('#creatorPasscode'),creatorConfirm=document.querySelector('#creatorPasscodeConfirm'),creatorOtp=document.querySelector('#creatorOtp');
+let creatorState={configured:false,unlocked:false};
+function updateCreatorButton(){document.querySelector('#creatorOpen').textContent=creatorState.unlocked?'Creator mode: On':'Creator access'}
+async function refreshCreator(){const response=await fetch(apiUrl('/api/creator'));const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not check creator access');creatorState=data;updateCreatorButton();return data}
+async function openCreatorDialog(){const status=document.querySelector('#creatorStatus');status.textContent='';try{await refreshCreator()}catch(e){status.textContent='Omnis server unavailable. Start start-usb.bat first.';creatorDialog.showModal();return}const configured=creatorState.configured;document.querySelector('#creatorDescription').textContent=creatorState.unlocked?'Creator mode is active in this browser. Lock it when you are finished.':configured?creatorState.two_factor_enabled?'Enter your creator passcode; a one-time code will then be sent to your configured phone.':'Enter your creator passcode. SMS two-step verification is not configured on this PC.':'Set up a fresh creator passcode on this PC. Use at least 16 characters.';document.querySelector('#creatorConfirmGroup').hidden=configured;document.querySelector('#creatorPasscodeLabel').hidden=false;creatorPasscode.hidden=false;document.querySelector('#creatorOtpLabel').hidden=true;creatorOtp.hidden=true;creatorOtp.required=false;creatorOtp.value='';document.querySelector('#creatorLock').hidden=!creatorState.unlocked;document.querySelector('#creatorSubmit').hidden=creatorState.unlocked;document.querySelector('#creatorSubmit').textContent=configured?'Unlock':'Set up';creatorPasscode.value='';creatorConfirm.value='';creatorPasscode.autocomplete=configured?'current-password':'new-password';creatorPasscode.minLength=configured?1:16;creatorPasscode.required=true;creatorConfirm.required=!configured;creatorDialog.showModal()}
+document.querySelector('#creatorOpen').addEventListener('click',openCreatorDialog);
+document.querySelector('#creatorForm').addEventListener('submit',async event=>{event.preventDefault();const setup=!creatorState.configured,otpStep=creatorState.otp_required===true,passcode=creatorPasscode.value,status=document.querySelector('#creatorStatus');if(!otpStep&&setup&&passcode!==creatorConfirm.value){status.textContent='The passcodes do not match.';return}const button=document.querySelector('#creatorSubmit');button.disabled=true;status.textContent=otpStep?'Verifying SMS code…':setup?'Setting up creator access…':'Checking passcode…';try{const endpoint=otpStep?'/api/creator/verify-otp':setup?'/api/creator/setup':'/api/creator/unlock',body=otpStep?{code:creatorOtp.value.trim()}:{passcode};const response=await fetch(apiUrl(endpoint),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw new Error(data.error||'Creator access failed');if(data.otp_required){creatorState={...creatorState,...data};document.querySelector('#creatorDescription').textContent='Enter the one-time SMS code sent to '+data.masked_phone+'. The code expires in five minutes.';document.querySelector('#creatorPasscodeLabel').hidden=true;creatorPasscode.hidden=true;creatorPasscode.required=false;document.querySelector('#creatorConfirmGroup').hidden=true;document.querySelector('#creatorOtpLabel').hidden=false;creatorOtp.hidden=false;creatorOtp.required=true;creatorOtp.value='';document.querySelector('#creatorSubmit').textContent='Verify code';creatorOtp.focus();status.textContent='Code sent. Check your phone.';return}creatorState=data;updateCreatorButton();status.textContent='Creator mode is on in this browser.';creatorPasscode.value='';creatorConfirm.value='';creatorOtp.value='';setTimeout(()=>creatorDialog.close(),700)}catch(error){status.textContent=error.message;if(otpStep)creatorOtp.value='';else{creatorPasscode.value='';creatorConfirm.value=''}}finally{button.disabled=false}});
+document.querySelector('#creatorLock').addEventListener('click',async()=>{const status=document.querySelector('#creatorStatus');try{const response=await fetch(apiUrl('/api/creator/lock'),{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not lock creator mode');creatorState=data;updateCreatorButton();status.textContent='Creator mode is locked.';document.querySelector('#creatorLock').hidden=true}catch(error){status.textContent=error.message}});
+creatorDialog.addEventListener('close',()=>{creatorPasscode.value='';creatorConfirm.value='';creatorOtp.value='';creatorState={configured:creatorState.configured,unlocked:creatorState.unlocked,two_factor_enabled:creatorState.two_factor_enabled}});
+async function updateMemory(){if(publicMode)return;try{const response=await fetch(apiUrl('/api/memory')),data=await response.json();document.querySelectorAll('[data-memory-toggle]').forEach(button=>{button.textContent='Memory: '+(data.enabled?'On':'Off');button.setAttribute('aria-pressed',String(data.enabled))});document.querySelectorAll('[data-memory-status]').forEach(node=>{node.textContent=data.enabled?`Saved on this PC · ${data.conversations} conversations · ${data.facts} remembered details`:'Paused · existing memories are kept locally'});}catch(e){document.querySelectorAll('[data-memory-status]').forEach(node=>node.textContent='Local memory unavailable')}}
+async function toggleMemory(event){const enabled=event.currentTarget.getAttribute('aria-pressed')!=='true';try{const response=await fetch(apiUrl('/api/memory'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Memory setting failed');document.querySelectorAll('[data-memory-toggle]').forEach(button=>button.setAttribute('aria-pressed',String(data.enabled)));await updateMemory()}catch(e){alert('Could not update memory: '+e.message)}}
+async function forgetMemory(){if(!confirm('Erase Omnis’ saved conversations and remembered details from this PC? This cannot be undone.'))return;try{const response=await fetch(apiUrl('/api/memory'),{method:'DELETE'});const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not erase memory');location.reload()}catch(e){alert('Could not erase memory: '+e.message)}}
+function escapeHtml(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function insert(text){document.querySelector('#welcome')?.remove();input.value=text;input.focus();input.dispatchEvent(new Event('input'))}
+function add(role,text,tool){const box=document.createElement('div');box.className='message '+role;box.innerHTML=`<div class="avatar">${role==='user'?'Y':'P'}</div><div><div class="meta">${role==='user'?'You':'Omnis'}${tool?' · '+escapeHtml(tool):''}</div><div class="bubble">${escapeHtml(text)}</div></div>`;messages.append(box);messages.scrollTop=messages.scrollHeight;return box}
+function renderQuiz(box,quiz){
+  const content=box.querySelector('div:last-child'),card=document.createElement('section');
+  card.className='quiz-card';card.setAttribute('aria-live','polite');
+  let index=0,score=0;
+  function showQuestion(){
+    card.replaceChildren();
+    if(index>=quiz.questions.length){
+      const progress=document.createElement('div');progress.className='quiz-progress';progress.textContent='Quiz complete';
+      const result=document.createElement('div');result.className='quiz-question';result.textContent=`Your score: ${score} / ${quiz.questions.length}`;
+      card.append(progress,result);
+      const retry=document.createElement('button');retry.type='button';retry.className='quiz-next';retry.textContent='Try another quiz';
+      retry.addEventListener('click',()=>{input.value=`/quiz ${quiz.topic} --count ${quiz.questions.length}`;submit()});
+      card.append(retry);messages.scrollTop=messages.scrollHeight;return;
+    }
+    const item=quiz.questions[index];
+    const progress=document.createElement('div');progress.className='quiz-progress';progress.textContent=`Question ${index+1} of ${quiz.questions.length} · Score ${score}`;
+    const question=document.createElement('div');question.className='quiz-question';question.textContent=item.question;
+    const choices=document.createElement('div');choices.className='quiz-choices';
+    const feedback=document.createElement('div');feedback.className='quiz-feedback';feedback.hidden=true;
+    const next=document.createElement('button');next.type='button';next.className='quiz-next';next.textContent=index===quiz.questions.length-1?'See score':'Next question';next.hidden=true;
+    item.choices.forEach((choice,choiceIndex)=>{
+      const button=document.createElement('button');button.type='button';button.className='quiz-choice';button.textContent=String.fromCharCode(65+choiceIndex)+'. '+choice;
+      button.addEventListener('click',()=>{
+        choices.querySelectorAll('button').forEach(option=>option.disabled=true);
+        const correct=choiceIndex===item.answer;if(correct)score++;
+        feedback.hidden=false;feedback.classList.add(correct?'correct':'incorrect');
+        feedback.textContent=(correct?'Correct! ':'Not quite. Correct answer: '+item.choices[item.answer]+'. ')+item.explanation;
+        progress.textContent=`Question ${index+1} of ${quiz.questions.length} · Score ${score}`;
+        next.hidden=false;messages.scrollTop=messages.scrollHeight;
+      });
+      choices.append(button);
+    });
+    next.addEventListener('click',()=>{index++;showQuestion()});
+    card.append(progress,question,choices,feedback,next);messages.scrollTop=messages.scrollHeight;
+  }
+  showQuestion();content.append(card);
+}
+function addMedia(box,items){for(const item of items||[]){const node=document.createElement(item.type==='video'?'video':'img');node.className='media';node.src=item.url;if(item.type==='video'){node.controls=true;node.playsInline=true}node.alt=item.type==='image'?'Attached or generated image':'';box.querySelector('div:last-child').append(node)}messages.scrollTop=messages.scrollHeight}
+async function watchJob(jobId,box,mediaType){for(let i=0;i<900;i++){await new Promise(r=>setTimeout(r,2000));const response=await fetch(apiUrl('/api/jobs/'+encodeURIComponent(jobId)+'?media_type='+encodeURIComponent(mediaType)));const job=await response.json();if(!response.ok)throw new Error(job.error||'Could not read generation status');if(job.status==='done'){box.querySelector('.bubble').textContent='Generation complete.';addMedia(box,job.media);return}if(job.status==='error')throw new Error(job.error);box.querySelector('.bubble').textContent='Creating your '+mediaType+'…';messages.scrollTop=messages.scrollHeight}throw new Error('Generation timed out. Check the hosted model provider status.')}
+async function submitMedia(prompt,mediaType){document.querySelector('#welcome')?.remove();add('user','/'+mediaType+' '+prompt);const wait=add('assistant','Starting hosted '+mediaType+' generation…');wait.querySelector('.bubble').className='bubble typing';send.disabled=true;let answer='Your '+mediaType+' is being generated.';history.push({role:'user',content:'/'+mediaType+' '+prompt});try{const response=await fetch(apiUrl('/api/generate'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:mediaType,prompt})}),job=await response.json();if(!response.ok)throw new Error(job.error||'Could not start generation');wait.querySelector('.bubble').className='bubble';wait.querySelector('.meta').textContent='Omnis · '+mediaType+' generation';if(job.status==='done'){addMedia(wait,job.media)}else await watchJob(job.job_id,wait,mediaType);history.push({role:'assistant',content:answer})}catch(error){wait.querySelector('.bubble').className='bubble';wait.querySelector('.bubble').textContent='Generation error: '+error.message}finally{send.disabled=false}}
+async function submit(){
+  const text=input.value.trim();
+  if(!text&&!pendingImage)return;
+  input.value='';
+  input.style.height='auto';
+  if(publicMode){
+    const mediaRequest=text.match(/^\/(image|video)\s+([\s\S]+)$/i);
+    if(mediaRequest){await submitMedia(mediaRequest[2].trim(),mediaRequest[1].toLowerCase());return}
+  }
+  document.querySelector('#welcome')?.remove();
+  const image=pendingImage;
+  pendingImage=null;
+  photoPreview.hidden=true;
+  photoInput.value='';
+  if(image)history.forEach(message=>delete message.images);
+  const userText=text||'Please solve the problem shown in this image and explain the steps.';
+  const userMessage={role:'user',content:userText};
+  if(image)userMessage.images=[image];
+  const userBox=add('user',userText);
+  if(image)addMedia(userBox,[{type:'image',url:'data:'+image.mime_type+';base64,'+image.data}]);
+  history.push(userMessage);
+  history=history.slice(-12);
+  send.disabled=true;
+  const wait=add('assistant','Thinking…');
+  wait.querySelector('.bubble').className='bubble typing';
+  let answer='',quizData=null;
+  try{
+    const r=await fetch(apiUrl('/api/chat/stream'),{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:history,conversation_id:conversationId})
+    });
+    if(!r.ok)throw await apiResponseError(r,'Chat request failed');
+    if(!(r.headers.get('content-type')||'').toLowerCase().includes('application/x-ndjson'))throw await apiResponseError(r,'Chat API returned an unexpected response');
+    const reader=r.body.getReader(),decoder=new TextDecoder();
+    let pending='',jobId=null;
+    while(true){
+      const {value,done}=await reader.read();
+      if(done)break;
+      pending+=decoder.decode(value,{stream:true});
+      const lines=pending.split('\n');
+      pending=lines.pop();
+      for(const line of lines){
+        if(!line.trim())continue;
+        const event=JSON.parse(line);
+        if(event.type==='delta'){
+          answer+=event.content;
+          wait.querySelector('.bubble').textContent=answer;
+          messages.scrollTop=messages.scrollHeight;
+        }else if(event.type==='result'){
+          answer=event.message;
+          quizData=event.quiz||null;
+          wait.querySelector('.bubble').textContent=answer;
+          wait.querySelector('.meta').textContent='Omnis'+(event.tool?' · '+event.tool:'');
+          jobId=event.job_id||null;
+        }else if(event.type==='error')throw new Error(event.message);
+      }
+    }
+    if(pending.trim()){
+      const event=JSON.parse(pending);
+      if(event.type==='error')throw new Error(event.message);
+      if(event.type==='delta')answer+=event.content;
+      if(event.type==='result'){answer=event.message;quizData=event.quiz||null;jobId=event.job_id||null}
+    }
+    wait.querySelector('.bubble').className='bubble';
+    if(quizData)renderQuiz(wait,quizData);
+    history.push({role:'assistant',content:answer});
+    history=history.slice(-12);
+    if(jobId)watchJob(jobId,wait,'image').catch(e=>{wait.querySelector('.bubble').textContent='Generation error: '+e.message});
+    updateMemory();
+  }catch(e){
+    wait.querySelector('.bubble').className='bubble';
+    wait.querySelector('.bubble').textContent=e instanceof TypeError&&e.message==='Failed to fetch'?backendUnavailable:'Error: '+e.message;
+  }finally{
+    send.disabled=false;
+  }
+}
+function newChat(){history=[];messages.innerHTML='';location.reload()}
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit()}});input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,120)+'px'});send.addEventListener('click',submit);
+document.querySelectorAll('[data-memory-toggle]').forEach(button=>button.addEventListener('click',toggleMemory));document.querySelectorAll('[data-forget-memory]').forEach(button=>button.addEventListener('click',forgetMemory));
+document.querySelector('#attachPhoto').addEventListener('click',()=>photoInput.click());
+photoInput.addEventListener('change',()=>{const file=photoInput.files[0];if(!file)return;if(!['image/jpeg','image/png','image/webp'].includes(file.type)){alert('Choose a JPG, PNG, or WebP photo.');photoInput.value='';return}if(file.size>3*1024*1024){alert('Photos must be no larger than 3 MB.');photoInput.value='';return}const reader=new FileReader();reader.onload=()=>{const dataUrl=String(reader.result);pendingImage={mime_type:file.type,data:dataUrl.split(',')[1]};photoThumbnail.src=dataUrl;photoPreview.hidden=false};reader.onerror=()=>alert('Could not read that photo. Please choose it again.');reader.readAsDataURL(file)});
+document.querySelector('#removePhoto').addEventListener('click',()=>{pendingImage=null;photoInput.value='';photoThumbnail.removeAttribute('src');photoPreview.hidden=true});
+const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(Recognition){const recognition=new Recognition();recognition.lang=navigator.language||'en-US';recognition.onresult=e=>{input.value=e.results[0][0].transcript;submit()};document.querySelector('#mic').onclick=()=>recognition.start()}else document.querySelector('#mic').style.display='none';
+let installPrompt=null;const installButton=document.querySelector('#install');window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event});installButton.addEventListener('click',async()=>{if(!installPrompt){alert(/iPhone|iPad/.test(navigator.userAgent)?'In Safari, tap Share, then Add to Home Screen.':'In your browser menu, choose Install app or Add to Home screen.');return}installPrompt.prompt();await installPrompt.userChoice;installPrompt=null});window.addEventListener('appinstalled',()=>{installButton.style.display='none'});if('serviceWorker'in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('sw.js').catch(error=>console.error('Omnis offline setup failed:',error));
+async function initialize(){const backend=await health();if(backend?.public_mode)return;updateMemory();refreshCreator().catch(()=>{});setInterval(health,15000)}
+initialize();
+</script></body></html>

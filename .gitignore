@@ -1,0 +1,13 @@
+models/
+ollama/
+python/
+__pycache__/
+*.py[cod]
+.vercel/
+.env
+.env.*
+!.env.example
+*.sqlite3
+creator-auth.json
+firebase-public/
+.firebaserc
